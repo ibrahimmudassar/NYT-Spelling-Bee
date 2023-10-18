@@ -100,7 +100,7 @@ embed.set_image(url='attachment://fig1.png')
 # set thumbnail
 # Open the image from the URL
 now = datetime.now()
-image_url = f'https://static01.nyt.com/images/{now.strftime("%Y/%m/%d")}/multimedia/{now.strftime("%d")}-the-morning-bee/{now.strftime("%d")}-the-morning-bee-superJumbo.png?quality=100&auto=png'
+image_url = f'https://static01.nyt.com/images/{now.strftime("%Y/%m/%d")}/multimedia/{now.strftime("%d")}morning-bee/{now.strftime("%d")}morning-bee-superJumbo.png?quality=100&auto=png'
 image = Image.open(requests.get(image_url, stream=True).raw)
 
 # Make the white background transparent
@@ -155,7 +155,7 @@ for webhook_url in env.list("WEBHOOKS"):
 
     with open("fig1.png", "rb") as f:
         webhook.add_file(file=f.read(), filename='fig1.png')
-    
+
     with open("result.png", "rb") as f:
         webhook.add_file(file=f.read(), filename='result.png')
 
