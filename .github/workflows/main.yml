@@ -1,8 +1,8 @@
 name: run nyt_spelling_bee_discord.py
 
-on:
-  schedule:
-    - cron: "30 13 * * *"
+on: [push]
+  # schedule:
+  #   - cron: "30 13 * * *"
 
 jobs:
   build:
@@ -13,7 +13,7 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.x" # install the python version needed
+          python-version: "3.11" # install the python version needed
 
       - name: install python packages
         run: |
