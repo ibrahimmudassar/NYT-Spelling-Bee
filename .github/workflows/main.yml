@@ -1,8 +1,8 @@
 name: run nyt_spelling_bee_discord.py
 
-on: [push]
-  # schedule:
-  #   - cron: "30 13 * * *"
+on:
+  schedule:
+    - cron: "30 13 * * *"
 
 jobs:
   build:
