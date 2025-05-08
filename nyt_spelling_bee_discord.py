@@ -163,13 +163,21 @@ embed.add_embed_field(name="Top Words", value="\n".join(top_5))
 # add fields to embed
 embed.add_embed_field(name="Rare Words", value="\n".join(rare_5))
 
+if not os.path.exists("result.png"):
+    embed.add_embed_field(
+        name="Letters",
+        value=" ".join(
+            [letters.upper() for letters in gameData["validLetters"]]
+        ),  # "R A C I L P T"
+    )
+
 # add embed object to webhook(s)
 for webhook_url in env.list("WEBHOOKS"):
     webhook = DiscordWebhook(url=webhook_url)
 
     with open("fig1.png", "rb") as f:
         webhook.add_file(file=f.read(), filename="fig1.png")
-    
+
     if os.path.exists("result.png"):
         with open("result.png", "rb") as f:
             webhook.add_file(file=f.read(), filename="result.png")
